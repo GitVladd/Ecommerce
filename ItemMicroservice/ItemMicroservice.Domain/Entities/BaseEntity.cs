@@ -7,7 +7,7 @@ namespace ItemMicroservice.Domain.Entities
     public abstract class BaseEntity<TKey> where TKey : IEquatable<TKey>
     {
         [Key]
-        public TKey Id { get; set; }
+        public TKey Id { get; set; } = default;
 
         [Column(TypeName = "DateTime2")]
         [JsonIgnore]

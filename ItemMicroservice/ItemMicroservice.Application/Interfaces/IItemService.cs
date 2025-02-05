@@ -5,15 +5,15 @@ namespace ItemMicroservice.Application.Interfaces
 {
     public interface IItemService
     {
-        Task<IEnumerable<ItemGetDto>> GetAllItemsAsync(PaginationParameter pagination);
+        Task<IEnumerable<ItemGetDto>> GetAllItemsAsync(PaginationParameter pagination, CancellationToken cancellationToken = default);
 
-        Task<ItemGetDto?> GetByIdAsync(Guid id);
+        Task<ItemGetDto> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
 
-        Task<ItemGetDto> CreateAsync(ItemCreateDto createDto);
+        Task<ItemGetDto> CreateAsync(ItemCreateDto createDto, CancellationToken cancellationToken = default);
 
-        Task<ItemGetDto> UpdateAsync(ItemUpdateDto updateDto);
+        Task<ItemGetDto> UpdateAsync(Guid id, ItemUpdateDto updateDto, CancellationToken cancellationToken = default);
 
-        Task DeleteAsync(Guid id);
+        Task SoftDeleteAsync(Guid id, CancellationToken cancellationToken = default);
 
     }
 }

@@ -9,16 +9,22 @@ namespace ItemMicroservice.Application.Mappers
         {
             return new ItemGetDto
             {
-
-            }
+                Id = item.Id,
+                Name = item.Name,
+                Description = item.Description,
+                Price = item.Price
+            };
         }
 
         public static Item ToItem(this ItemGetDto item)
         {
             return new Item
             {
-
-            }
+                Id = item.Id,
+                Name = item.Name,
+                Description = item.Description,
+                Price = item.Price
+            };
         }
     }
 }

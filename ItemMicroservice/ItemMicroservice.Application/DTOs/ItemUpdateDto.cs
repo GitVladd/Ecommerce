@@ -1,8 +1,6 @@
-﻿
-
-namespace ItemMicroservice.Application.DTOs
+﻿namespace ItemMicroservice.Application.DTOs
 {
-    public class ItemUpdateDto
+    public class ItemUpdateDto : ItemBaseDto
     {
     }
 }

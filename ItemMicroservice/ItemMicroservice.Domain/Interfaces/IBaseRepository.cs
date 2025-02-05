@@ -1,5 +1,4 @@
-﻿
-using ItemMicroservice.Domain.Entities;
+﻿using ItemMicroservice.Domain.Entities;
 
 namespace ItemMicroservice.Domain.Interfaces
 {
@@ -11,7 +10,9 @@ namespace ItemMicroservice.Domain.Interfaces
         Task<TEntity?> GetByIdAsync(TKey id, CancellationToken cancellationToken = default);
         TEntity Create(TEntity item);
         TEntity Update(TEntity item);
-        void Delete(TEntity item);
+        void SoftDelete(TEntity item);
+        void HardDelete(TEntity entity);
+        void Restore(TEntity entity);
         Task SaveAsync(CancellationToken cancellationToken = default);
     }
 }

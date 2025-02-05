@@ -38,10 +38,25 @@ namespace TEntityMicroservice.Infrastructure.Repository
             _dbContext.Set<TEntity>().Update(entity);
             return entity;
         }
-        public void Delete(TEntity entity)
+        public void SoftDelete(TEntity entity)
         {
             entity.DeletedAt = DateTime.Now;
+            entity.IsDeleted = true;
+        }
+
+        public void HardDelete(TEntity entity)
+        {
             _dbContext.Set<TEntity>().Remove(entity);
+        }
+
+        public void Restore(TEntity entity)
+        {
+            if (!entity.IsDeleted)
+                throw new InvalidOperationException("Entity is not deleted.");
+
+            entity.IsDeleted = false;
+            entity.DeletedAt = null;
+            entity.UpdatedAt = DateTime.Now;
         }
 
         public async Task SaveAsync(CancellationToken cancellationToken = default)

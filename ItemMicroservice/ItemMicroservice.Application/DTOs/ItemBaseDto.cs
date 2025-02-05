@@ -1,9 +1,8 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace ItemMicroservice.Domain.Entities
+namespace ItemMicroservice.Application.DTOs
 {
-    public class Item : BaseEntity<Guid>
+    public abstract class ItemBaseDto
     {
         [Required]
         public string Name;

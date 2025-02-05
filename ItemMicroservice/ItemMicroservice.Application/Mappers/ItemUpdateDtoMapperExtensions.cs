@@ -5,20 +5,11 @@ namespace ItemMicroservice.Application.Mappers
 {
     internal static class ItemUpdateDtoMapperExtensions
     {
-        public static ItemUpdateDto ToItemUpdateDto(this Item item)
+        public static void ApplyUpdateDto(this Item item, ItemUpdateDto dto)
         {
-            return new ItemUpdateDto
-            {
-
-            }
-        }
-
-        public static Item ToItem(this ItemUpdateDto item)
-        {
-            return new Item
-            {
-
-            }
+            item.Name = dto.Name;
+            item.Description = dto.Description;
+            item.Price = dto.Price;
         }
     }
 }
